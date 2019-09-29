@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+
+/*********************************************
+ * Colors
+ *********************************************/
+:root {
+  /* https://www.colourlovers.com/palette/25003/steal_away */
+  /* https://color.adobe.com/mythemes */
+  text-emphasis-color: #fa6756;
+  --emphasis-color: #fa6756;
+  --emphasis-color2: #a3d1c2;
+  --trans-background-color: #ffffff99;
+  --dark-color: #103c3f;
+  --dark-lighten-color: #103c3f5d;
+  --light-orig-color: #fdf6e3;
+  /* http://www.colourlovers.com/patterns/add?colors=103C3F,6C547E,AF9BB2,A3D1C2,F7E0A6&pID=4648709 */
+}
+::selection {
+  color: #fff;
+  background: var(--emphasis-color);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: var(--emphasis-color);
+  text-shadow: none;
+}
+/*********************************************
+ * Text
+ *********************************************/
+.emphasize {
+  color: var(--emphasis-color);
+  font-weight: 900;
+}
+.reveal .quote h1,
+.reveal .quote h2,
+.reveal .quote h3,
+.reveal .quote {
+  /* set font to cursivey */
+  font-family: 'Lora', serif;
+  text-transform: inherit;
+}
+.reveal .fade-dark,
+.reveal .fade-dark h1,
+.reveal .fade-dark p,
+.reveal .fade-dark {
+  color: var(--dark-lighten-color);
+}
+.reveal .white-text-img h1,
+.reveal .white-text-img h2,
+.reveal .white-text-img h3,
+.reveal .white-text-img h4,
+.reveal .white-text-img h5,
+.reveal .white-text-img {
+  color: white;
+}
+.less-emphasis {
+  color: #268bd2;
+}
+.more-subtle {
+  color: #268bd2;
+}
+.subtle {
+  color: #2aa198;
+}
+
+.cite {
+  color: grey;
+  font-style: italic;
+  font-size: 0.5rem;
+}
+/*********************************************
+ * Slides
+ *********************************************/
+.reveal .section-header h1,
+.reveal .section-header h2,
+.reveal .section-header h3,
+.reveal .section-header p,
+.reveal .section-header {
+  background-color: var(--emphasis-color);
+  color: var(--light-orig-color);
+}
+
+.photo-slide img {
+  position: absolute;
+  /* top: 10%;
+  left: 60%; */
+  width: 10%;
+}
+
+.checkmark.plain {
+  margin: 0 0 0 1em;
+  border: 0;
+  box-shadow: none;
+}
+
+.present {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+}
