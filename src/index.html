@@ -26,7 +26,7 @@
       <div class="slides">
         <section data-background-color="#fa6756" class="section-header">
           <h1>
-            Inspiring with Content
+            Workers Sites: Inspiring with Content
           </h1>
           <h3>Victoria Bernard</h3>
           <h3>October 3, 2019</h3>
@@ -54,7 +54,7 @@
             </ul>
             <img
               class="fragment fade-up"
-              src="images/me_baby.jpg"
+              src="images/me_water.jpg"
               style="position: absolute; bottom: 32px; right: 0; width: 50%"
             />
           </div>
@@ -64,7 +64,7 @@
             Agenda
           </h2>
           <ul>
-            <li>Why Static Sites?</li>
+            <li>How did we get here?</li>
             <li>What are Workers Sites</li>
             <li>Discovery along the way</li>
           </ul>
@@ -74,16 +74,35 @@
           <h1>
             <img
               class="plain "
+              style="width: 54%;"
               src="images/generic/logo-combination-mark-horizontal.svg"
             />
           </h1>
-          What are Workers?
+          <div>
+            <h3>What are Workers?</h3>
+            <ul>
+              <li>Compute at the edge</li>
+              <li>KV Store</li>
+              <!-- <li></li> -->
+            </ul>
+            <br />
+            <br />
+            <h2>But what can I do with it??</h2>
+          </div>
+        </section>
+        <section>
+          <h2>Use Cases</h2>
           <ul>
-            <li>Compute at the edge</li>
-            <li>KV with Workers</li>
-            <!-- <li></li> -->
+            <li>Redirect on Country</li>
+            <li>Set and store cookies</li>
+            <li>Control Cache</li>
+            <li>etc..</li>
+            <li class="fragment fade-up">Serve Static Files</li>
           </ul>
-          What can I do with it??
+          <div style="display:flex" class="flex">
+            <img class="plain" style="flex:1" src="images/templategall.png" />
+            <img class="plain" style="flex:1" src="images/tutorials.png" />
+          </div>
         </section>
         <section
           data-transition="slide"
@@ -94,19 +113,20 @@
           <ul>
             <li>
               Global<img
-                class="checkmark plain fragment fade-up"
+                class="icon plain fragment fade-up"
                 src="images/generic/checkmark.svg"
               />
             </li>
             <li>
-              Custom<img
-                class="checkmark plain fragment fade-up"
+              Customizable<img
+                class="icon plain fragment fade-up"
                 src="images/generic/checkmark.svg"
               />
             </li>
             <li>
-              Originless<img
-                class="checkmark plain fragment fade-up"
+              Originless
+              <img
+                class="icon plain fragment fade-up"
                 src="images/generic/checkmark.svg"
               />
             </li>
@@ -116,47 +136,240 @@
           data-transition="slide"
           data-background-transition="zoom"
           style="transition:none "
-          class="fade-dark"
         >
           <h3>
-            <span
-              class="fade-dark present"
-              style="text-decoration: line-through"
-              >Clear </span
-            >Use Case: Static Sites
+            <!-- class="fade-dark" -->
+            <!-- class="fade-dark present" -->
+            <span style="text-decoration: line-through">Clear </span>Use Case:
+            Static Sites
           </h3>
-
-          <ul>
-            <li>
-              Complex<img
-                class="checkmark plain fragment fade-up"
-                src="images/generic/checkmark.svg"
-              />
-            </li>
-            <li>
-              Lots of steps<img
-                class="checkmark plain fragment fade-up"
-                src="images/generic/checkmark.svg"
-              />
-            </li>
-            <li>
-              Non-obvious steps<img
-                class="checkmark plain fragment fade-up"
-                src="images/generic/checkmark.svg"
-              />
-            </li>
-          </ul>
-          <span class="emphasize">
-            <span style="text-decoration: line-through">
-              or
-            </span>
-            and
-          </span>
+          <div>
+            <!-- <div style="float: left"> -->
+            <ul>
+              <li>
+                Global<img
+                  class="icon plain"
+                  src="images/generic/checkmark.svg"
+                />
+              </li>
+              <li>
+                Customizable<img
+                  class="icon plain"
+                  src="images/generic/checkmark.svg"
+                />
+              </li>
+              <li>
+                Originless<img
+                  class="icon plain"
+                  src="images/generic/checkmark.svg"
+                />
+              </li>
+              <li class="fragment fade-up">
+                Complex<img
+                  class="icon danger plain"
+                  src="images/generic/danger.svg"
+                />
+              </li>
+              <li class="fragment fade-up">
+                Lots of steps<img
+                  class="icon danger plain "
+                  src="images/generic/danger.svg"
+                />
+              </li>
+              <li class="fragment fade-up">
+                Weird steps<img
+                  class="icon danger plain"
+                  src="images/generic/danger.svg"
+                />
+              </li>
+            </ul>
+          </div>
         </section>
         <section>
+          <h2>Our Solution: Workers Sites</h2>
+          <img src="images/illustrations/Sites.png" />
+        </section>
+        <section>
+          <h2>Commands of Solution</h2>
+          <div class="fragment fade-up">
+            <div class="code-row">
+              <div class="left-block">
+                <p style="text-align: right;">Start a project</p>
+              </div>
+              <div class="right-block" style="margin-bottom: -12px">
+                <pre><code class="javascript" data-trim contenteditable style="font-size: 1em;">
+$wrangler generate --site myproj</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="fragment fade-up">
+            <div class="code-row">
+              <div class="left-block">
+                <p style="text-align: right;">
+                  Build a directory:
+                </p>
+              </div>
+              <div class="right-block">
+                <pre><code class="javascript" data-trim contenteditable style="font-size: 1em;">
+$ cd myproj
+$ tree . -l 2
+├── public
+|  ├── 404.html
+|  ├── favicon.ico
+|  ├── img
+|  └── index.html
+├── workers-site
+|  ├── index.js
+|  ├── package-lock.json
+|  └── package.json
+└── wrangler.toml</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="fragment fade-up">
+            <div class="code-row">
+              <div class="left-block">
+                <p style="text-align: right;">
+                  Set account ID in wrangler.toml
+                </p>
+              </div>
+              <div class="right-block">
+                <pre><code class="javascript" data-trim contenteditable style="font-size: 1em;">
+                    $ vim wrangler.toml
+                    account_id = "ab7f23..."
+                    name = "temp-site"
+                    ... </code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="fragment fade-up">
+            <div class="code-row">
+              <div class="left-block">
+                <p style="text-align: right;">
+                  Publish
+                </p>
+              </div>
+              <div class="right-block">
+                <pre><code class="javascript" data-trim contenteditable style="font-size: 1em;">
+$ wrangler publish
+🌀  Using namespace for Workers Site "__myproj-workers_sites_assets"
+✨  Success
+added 2 packages in 0.851s
+⬇️ Installing wranglerjs...
+⬇️ Installing wasm-pack...
+✨  Built successfully, built project size is 11 KiB.
+✨  Successfully published your script to https://myproj.developers.workers.dev
+                  </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Our Solution: Wrangler</h2>
           <video autoplay="true" loop="true" style="height: 70%">
             <source src="images/wrangler.mov" type="video/mp4" />
           </video>
+        </section>
+        <section>
+          <h2>Our Solution: Problems</h2>
+          <div>
+            <ul style="float: left">
+              <li class="fragment fade-up">Workers Unlimited Plan</li>
+              <li class="fragment fade-up">KV Read/Write $$</li>
+            </ul>
+            <img
+              style="position: absolute; bottom: 32px; right: 0; width: 50%"
+              src="images/illustrations/Sites.png"
+            />
+          </div>
+        </section>
+        <section>
+          <!-- <span>"Static" Asset Only Cache Default</span> -->
+          <h2>Cache Uncacheable</h2>
+          <ul>
+            <li>Bypass Cache on Cookie</li>
+            <li>Cache by Cache Tag</li>
+            <li>Respect Origin headers</li>
+            <li>Bypass Cache on Query String</li>
+            <li>
+              Railgun
+              <img src="images/Railgun.jpg" />
+            </li>
+            <li>etc...</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Putting Pieces together</h2>
+          <div style="display:flex;  flex-direction: row ">
+            <div style="flex: 1">
+              <p><h3>Have</h3></p>
+              <ul>
+                <li>Edge compute</li>
+                <li>Edge storage</li>
+                <li>Edge cache</li>
+              </ul>
+            </div>
+            <img
+              style="flex: 1; max-height: 250px; max-width: 150px"
+              src="images/Arrow-vert.png"
+              class="plain"
+            />
+            <div style="flex: 1">
+              <p><h3>Want</h3></p>
+              <ul>
+                <li>Logical caching</li>
+                <li>Minimial read/writes to KV</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Asset Manifest</h2>
+          <img src="images/illustrations/static-assets-wranger-@2x.png" />
+        </section>
+        <section>
+          <h2>Publish</h2>
+          <img src="images/illustrations/publish-assets.gif" />
+        </section>
+        <section>
+          <h2>Asset in Cache</h2>
+          <img src="images/illustrations/asset-in-cache.gif" />
+        </section>
+        <section>
+          <h2>Asset not in Cache</h2>
+          <img src="images/illustrations/asset-not-in-cache.gif" />
+        </section>
+        <section>
+          <h4>Problems</h4>
+          <ul>
+            <li>Powerful tool unclear Use Cases</li>
+            <li>How to Cache Uncachable</li>
+          </ul>
+          <img class="plain" style="max-height: 18%;" src="images/Arrow.png" />
+          <h4>End Results</h4>
+          <ul>
+            <li>Easy to use entry point for Workers</li>
+            <li>Cache Utopia</li>
+          </ul>
+        </section>
+        <section data-background-color="#fa6756" class="section-header">
+          <span class="quote"
+            >Great products start with focus on the problem</span
+          ><br />
+          <span class="quote-credit"
+            >Zeroing in on one problem can lead to a solution for many</span
+          ><br /><br />
+          "You cannot be sure you really understand any part of any business
+          problem unless you go and see for yourself firsthand. It is
+          unacceptable to take anything for granted or to rely on the reports of
+          others."
+          <img
+            class="fragment fade-up twitter-tweet "
+            src="images/mp-tweet.png"
+          />
+        </section>
+        <section>
+          <img src="images/generic/danger.svg" />
         </section>
       </div>
     </div>

@@ -88,11 +88,21 @@
   left: 60%; */
   width: 10%;
 }
+.flex > img {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  width: 50%;
+}
 
-.checkmark.plain {
+.icon.plain {
   margin: 0 0 0 1em;
   border: 0;
   box-shadow: none;
+}
+.icon.danger {
+  width: 30px;
+  height: 30px;
 }
 
 .present {
